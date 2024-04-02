@@ -20,6 +20,10 @@ namespace SampleFramework1
             internal set {} 
         }
 
+        public IWebElement FirstNameField => Driver.FindElement(By.Name("firstname"));
+
+        public IWebElement SubmitButton => Driver.FindElement(By.XPath("//*[@type='submit']"));
+
         internal void GoTo()
         {
             Driver.Navigate().GoToUrl("https://www.ultimateqa.com/sample-application-lifecycle-sprint-1/");
@@ -27,8 +31,8 @@ namespace SampleFramework1
 
         internal UltimateQAHomePage FillOutFormAndSubmit(string firstName)
         {
-            Driver.FindElement(By.XPath("//*[@name='firstname']")).SendKeys(firstName);
-            Driver.FindElement(By.XPath("//*[@type='submit']")).Submit();
+            FirstNameField.SendKeys(firstName);
+            SubmitButton.Submit();
             return new UltimateQAHomePage(Driver);
         }
     }

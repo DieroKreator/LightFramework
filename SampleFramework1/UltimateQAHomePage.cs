@@ -2,15 +2,17 @@ using OpenQA.Selenium;
 
 namespace SampleFramework1
 {
-    class UltimateQAHomePage
+    internal class UltimateQAHomePage
     {
-        private IWebDriver driver;
+        private IWebDriver Driver {get; set; }
 
         public UltimateQAHomePage(IWebDriver driver)
         {
-            this.driver = driver;
+            Driver = driver;
         }
 
-        public bool IsVisible => driver.FindElement(By.LinkText("SCHEDULE A FREE DISCOVERY SESSION")).Displayed;
+        public bool IsVisible => FreeDiscoveryButton.Displayed;
+
+        public IWebElement FreeDiscoveryButton => Driver.FindElement(By.LinkText("SCHEDULE A FREE DISCOVERY SESSION"));
     }
 }

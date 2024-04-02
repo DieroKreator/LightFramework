@@ -5,12 +5,12 @@ namespace SampleFramework1;
 
 [TestClass]
 [TestCategory("SampleApplicationOne")]  
-public class SampleApplicationOne
+public class SampleApplicationOneTests
 {
     private IWebDriver Driver {get; set;}
 
     [TestMethod]
-    public void TestMethod1()
+    public void Test1()
     {
         Driver = GetChromeDriver();
         var sampleApplicationPage = new SampleApplicationPage(Driver);
