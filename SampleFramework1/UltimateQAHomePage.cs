@@ -11,6 +11,6 @@ namespace SampleFramework1
             this.driver = driver;
         }
 
-        public bool IsVisible { get; internal set; }
+        public bool IsVisible => driver.FindElement(By.LinkText("SCHEDULE A FREE DISCOVERY SESSION")).Displayed;
     }
 }

@@ -27,7 +27,7 @@ namespace SampleFramework1
 
         internal UltimateQAHomePage FillOutFormAndSubmit(string firstName)
         {
-            Driver.FindElement(By.ClassName("firstname")).SendKeys(firstName);
+            Driver.FindElement(By.XPath("//*[@name='firstname']")).SendKeys(firstName);
             Driver.FindElement(By.XPath("//*[@type='submit']")).Submit();
             return new UltimateQAHomePage(Driver);
         }

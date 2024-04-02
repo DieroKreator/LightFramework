@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 namespace SampleFramework1;
 
 [TestClass]
-[TestCategory("SampleApplicationOne")]
+[TestCategory("SampleApplicationOne")]  
 public class SampleApplicationOne
 {
     private IWebDriver Driver {get; set;}
