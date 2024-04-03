@@ -19,6 +19,8 @@ public class SampleApplicationOneTests
 
         var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit("Alex");
         Assert.IsTrue(ultimateQAHomePage.IsVisible);
+        Driver.Close();
+        Driver.Quit();
     }
 
     private IWebDriver GetChromeDriver()

@@ -4,14 +4,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SampleFramework1
 {
-    internal class UltimateQAHomePage
+    internal class UltimateQAHomePage : BaseSampleApplicationPage
     {
-        private IWebDriver Driver {get; set; }
-
-        public UltimateQAHomePage(IWebDriver driver)
-        {
-            Driver = driver;
-        }
+        public UltimateQAHomePage(IWebDriver driver) : base(driver){}
 
         public bool IsVisible => FreeDiscoveryButton.Displayed;
         // public bool IsVisible{
@@ -23,10 +18,9 @@ namespace SampleFramework1
         //             IWebElement FreeDiscoveryButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//a[@href='/selenium-java']")));
         //             return FreeDiscoveryButton.Displayed;
         //         }
-        //         catch (System.Exception)
+        //         catch (NoSuchElementException)
         //         {
-                    
-        //             throw;
+        //             return false;
         //         }
         //     }
         // }

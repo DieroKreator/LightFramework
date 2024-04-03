@@ -2,14 +2,9 @@ using OpenQA.Selenium;
 
 namespace SampleFramework1
 {
-    internal class SampleApplicationPage
+    internal class SampleApplicationPage : BaseSampleApplicationPage
     {
-        public IWebDriver Driver { get; set; }
-
-        public SampleApplicationPage(IWebDriver driver)
-        {
-            Driver = driver;
-        }
+        public SampleApplicationPage(IWebDriver driver) : base(driver){}
 
         public bool IsVisible { 
             get 
