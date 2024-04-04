@@ -15,10 +15,10 @@ public class SampleApplicationOneTests
         Driver = GetChromeDriver();
         var sampleApplicationPage = new SampleApplicationPage(Driver);
         sampleApplicationPage.GoTo();
-        Assert.IsTrue(sampleApplicationPage.IsVisible);
+        Assert.IsTrue(sampleApplicationPage.IsVisible, "Same application was not visible.");
 
         var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit("Alex");
-        Assert.IsTrue(ultimateQAHomePage.IsVisible);
+        Assert.IsTrue(ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
         Driver.Close();
         Driver.Quit();
     }
