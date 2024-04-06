@@ -8,7 +8,19 @@ namespace SampleFramework1
     {
         public UltimateQAHomePage(IWebDriver driver) : base(driver){}
 
-        public bool IsVisible => FreeDiscoveryButton.Displayed;
+        public bool IsVisible {
+            get
+            {
+                try
+                {
+                    return FreeDiscoveryButton.Displayed;
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            }
+        }
         // public bool IsVisible{
         //     get 
         //     {
