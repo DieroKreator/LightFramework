@@ -8,33 +8,44 @@ namespace SampleFramework1;
 public class SampleApplicationOneTests
 {
     private IWebDriver Driver {get; set;}
+    internal TestUser TheTestUser { get; private set; }
 
     [TestMethod]
     public void Test1()
     {
-        Driver = GetChromeDriver();
         var sampleApplicationPage = new SampleApplicationPage(Driver);
         sampleApplicationPage.GoTo();
         Assert.IsTrue(sampleApplicationPage.IsVisible, "Same application was not visible.");
 
-        var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit("Alex");
-        Assert.IsTrue(ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
+        var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit(TheTestUser);
+        Assert.IsTrue(ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible.");
+    }
+
+    [TestCleanup]
+    public void CleanUpAfterEveryTestMethod()
+    {
         Driver.Close();
         Driver.Quit();
+    }
+
+    [TestInitialize]
+    public void SetupForEverySingleTestMethod()
+    {
+        Driver = GetChromeDriver();
+        TheTestUser = new TestUser();
+        TheTestUser.FirstName = "Alex";
+        TheTestUser.LastName = "Bullah";
     }
 
     [TestMethod]
     public void PretendTestNumber2()
     {
-        Driver = GetChromeDriver();
         var sampleApplicationPage = new SampleApplicationPage(Driver);
         sampleApplicationPage.GoTo();
         Assert.IsTrue(sampleApplicationPage.IsVisible, "Same application was not visible.");
 
-        var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit("Alex");
+        var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit(TheTestUser);
         Assert.IsTrue(ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
-        Driver.Close();
-        Driver.Quit();
     }
 
     private IWebDriver GetChromeDriver()
