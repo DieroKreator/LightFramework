@@ -9,12 +9,13 @@ namespace SampleFramework1
         public bool IsVisible { 
             get 
             {
-                return Driver.Title.Contains("Sample Application Lifecycle - Sprint 1 - Ultimate QA");
+                return Driver.Title.Contains(PageTitle);
 
             } 
             internal set {} 
         }
 
+        private string PageTitle => "Sample Application Lifecycle - Sprint 2 - Ultimate QA";
         public IWebElement FirstNameField => Driver.FindElement(By.Name("firstname"));
 
         public IWebElement SubmitButton => Driver.FindElement(By.XPath("//*[@type='submit']"));
@@ -24,6 +25,9 @@ namespace SampleFramework1
         internal void GoTo()
         {
             Driver.Navigate().GoToUrl("https://ultimateqa.com/sample-application-lifecycle-sprint-2/");
+            Assert.IsTrue(IsVisible, 
+                $"Same application was not visible. Expected=>{PageTitle}." +
+                $"Actual=>{Driver.Title}");
         }
 
         internal UltimateQAHomePage FillOutFormAndSubmit(TestUser user)
