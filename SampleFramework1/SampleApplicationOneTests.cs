@@ -4,10 +4,10 @@ using OpenQA.Selenium.Chrome;
 namespace SampleFramework1;
 
 [TestClass]
-[TestCategory("SampleApplicationOne")]  
+[TestCategory("SampleApplicationOne")]
 public class SampleApplicationOneTests
 {
-    private IWebDriver? Driver {get; set;}
+    private IWebDriver? Driver { get; set; }
     internal TestUser? TheTestUser { get; private set; }
 
     [TestMethod]
@@ -26,7 +26,7 @@ public class SampleApplicationOneTests
         sampleApplicationPage.GoTo();
         var ultimateQAHomePage = sampleApplicationPage.FillOutFormAndSubmit(TheTestUser);
         Assert.IsFalse(!ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
-    }    
+    }
 
     [TestCleanup]
     public void CleanUpAfterEveryTestMethod()
