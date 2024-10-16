@@ -7,8 +7,8 @@ namespace SampleFramework1;
 [TestCategory("SampleApplicationOne")]  
 public class SampleApplicationOneTests
 {
-    private IWebDriver Driver {get; set;}
-    internal TestUser TheTestUser { get; private set; }
+    private IWebDriver? Driver {get; set;}
+    internal TestUser? TheTestUser { get; private set; }
 
     [TestMethod]
     public void Test1()
