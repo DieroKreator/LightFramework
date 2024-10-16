@@ -28,6 +28,9 @@ public class SampleApplicationOneTests
         Assert.IsFalse(!ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
     }
 
+    // Sprint 3 - Sample Application Lifecycle
+    // More data added
+
     [TestCleanup]
     public void CleanUpAfterEveryTestMethod()
     {
@@ -49,4 +52,5 @@ public class SampleApplicationOneTests
         //var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         return new ChromeDriver();
     }
+
 }
