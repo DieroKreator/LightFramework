@@ -30,8 +30,7 @@ public class SampleApplicationOneTests
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
-    // Sprint 3 - Sample Application Lifecycle
-    // More data added
+    /* Sprint 3 - Sample Application Lifecycle / More data added */
     [TestMethod]
     [Description("Validate that when selecting the Other gender type, the form is submitted successfully.")]
     public void Test3()
@@ -41,6 +40,8 @@ public class SampleApplicationOneTests
         var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
+
+    /* Sprint 4 - Sample Application Lifecycle / Emergency contact added */
 
     [TestCleanup]
     public void CleanUpAfterEveryTestMethod()
