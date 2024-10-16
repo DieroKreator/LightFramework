@@ -4,5 +4,7 @@ namespace SampleFramework1
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        public Gender GenderType { get; set; }
     }
+    
 }

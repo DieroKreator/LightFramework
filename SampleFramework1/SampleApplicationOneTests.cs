@@ -11,6 +11,7 @@ public class SampleApplicationOneTests
     internal TestUser? TheTestUser { get; private set; }
 
     [TestMethod]
+    [Description("Validate that user is able to fill out the form successfully using valid data.")]
     public void Test1()
     {
         var sampleApplicationPage = new SampleApplicationPage(Driver);
@@ -20,6 +21,7 @@ public class SampleApplicationOneTests
     }
 
     [TestMethod]
+    [Description("Fake 2nd test.")]
     public void PretendTestNumber2()
     {
         var sampleApplicationPage = new SampleApplicationPage(Driver);
@@ -45,6 +47,7 @@ public class SampleApplicationOneTests
         TheTestUser = new TestUser();
         TheTestUser.FirstName = "Alex";
         TheTestUser.LastName = "Bullah";
+        TheTestUser.GenderType = Gender.Female;
     }
 
     private IWebDriver GetChromeDriver()
