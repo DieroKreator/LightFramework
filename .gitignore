@@ -1,2 +1,27 @@
-/bin
-/obj
+# Ignore build and temporary files
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+.vscode/
+.vs/
+
+# Ignore package files
+packages/
+*.nupkg
+*.snupkg
+
+# Ignore logs, lock files, and temporary files
+*.log
+*.cache
+project.lock.json
+project.fragment.lock.json
+
+# Ignore sensitive configuration files
+secrets.json
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
