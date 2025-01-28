@@ -26,6 +26,11 @@ namespace SampleFramework1
 
         public IWebElement FemaleGenderRadioButton => Driver.FindElement(By.XPath("//input[@value='female']"));
 
+        public IWebElement FemaleGenderRadioButtonForEmergencyContact => Driver.FindElement(By.Id("radio2-f"));
+
+        public IWebElement FirstNameFieldForEmergencyContact => Driver.FindElement(By.Id("f2"));
+        public IWebElement LastNameFieldForEmergencyContact => Driver.FindElement(By.Id("l2"));
+
         internal void GoTo()
         {
             // Driver.Navigate().GoToUrl("https://ultimateqa.com/sample-application-lifecycle-sprint-2/");
@@ -38,7 +43,6 @@ namespace SampleFramework1
         internal UltimateQAHomePage FillOutFormAndSubmit(TestUser user)
         {
             SetGender(user);
-
             FirstNameField.SendKeys(user.FirstName);
             LastNameField.SendKeys(user.LastName);
             SubmitButton.Submit();
@@ -53,6 +57,29 @@ namespace SampleFramework1
                     break;
                 case Gender.Female:
                     FemaleGenderRadioButton.Click();
+                    break;
+                case Gender.Other:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        internal void FillOutEmergencyContactForm(TestUser emergencyContactUser)
+        {
+            SetGenderForEmergencyContact(emergencyContactUser);
+            FirstNameFieldForEmergencyContact.SendKeys(emergencyContactUser.FirstName);
+            LastNameFieldForEmergencyContact.SendKeys(emergencyContactUser.LastName);
+        }
+
+        private void SetGenderForEmergencyContact(TestUser user)
+        {
+            switch (user.GenderType)
+            {
+                case Gender.Male:
+                    break;
+                case Gender.Female:
+                    FemaleGenderRadioButtonForEmergencyContact.Click();
                     break;
                 case Gender.Other:
                     break;
