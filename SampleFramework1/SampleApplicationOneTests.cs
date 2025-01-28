@@ -17,11 +17,11 @@ public class SampleApplicationOneTests
     [Description("Validate that user is able to fill out the form successfully using valid data.")]
     public void Test1()
     {
-        TheTestUser.GenderType = Gender.Female;
+        SetGenderTypes(Gender.Female, Gender.Female);
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisible(ultimateQAHomePage);
     }
 
@@ -30,7 +30,8 @@ public class SampleApplicationOneTests
     public void PretendTestNumber2()
     {
         SampleAppPage.GoTo();
-        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
+        SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
@@ -39,13 +40,13 @@ public class SampleApplicationOneTests
     [Description("Validate that when selecting the Other gender type, the form is submitted successfully.")]
     public void Test3()
     {
-        TheTestUser.GenderType = Gender.Other;
+        SetGenderTypes(Gender.Other, Gender.Other);
+
         SampleAppPage.GoTo();
-        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
+        SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
-
-    /* Sprint 4 - Sample Application Lifecycle / Emergency contact added */
 
     [TestCleanup]
     public void CleanUpAfterEveryTestMethod()
@@ -81,4 +82,10 @@ public class SampleApplicationOneTests
         Assert.IsFalse(!ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
     }
 
+        /* Sprint 4 - Sample Application Lifecycle / Emergency contact added */
+        private void SetGenderTypes(Gender primaryContact, Gender emergencyContact)
+    {
+        TheTestUser.GenderType = primaryContact;
+        EmergencyContactUser.GenderType = emergencyContact;
+    }
 }
