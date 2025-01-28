@@ -40,7 +40,7 @@ namespace SampleFramework1
                 $"Actual=>{Driver.Title}");
         }
 
-        internal UltimateQAHomePage FillOutFormAndSubmit(TestUser user)
+        internal UltimateQAHomePage FillOutPrimaryContactFormAndSubmit(TestUser user)
         {
             SetGender(user);
             FirstNameField.SendKeys(user.FirstName);

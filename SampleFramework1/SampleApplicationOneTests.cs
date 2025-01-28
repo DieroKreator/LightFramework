@@ -21,7 +21,7 @@ public class SampleApplicationOneTests
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
         AssertPageVisible(ultimateQAHomePage);
     }
 
@@ -30,7 +30,7 @@ public class SampleApplicationOneTests
     public void PretendTestNumber2()
     {
         SampleAppPage.GoTo();
-        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
@@ -41,7 +41,7 @@ public class SampleApplicationOneTests
     {
         TheTestUser.GenderType = Gender.Other;
         SampleAppPage.GoTo();
-        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
