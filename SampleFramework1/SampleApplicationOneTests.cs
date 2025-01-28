@@ -18,6 +18,7 @@ public class SampleApplicationOneTests
     public void Test1()
     {
         SetGenderTypes(Gender.Female, Gender.Female);
+        EmergencyContactUser = new TestUser();
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
@@ -29,6 +30,8 @@ public class SampleApplicationOneTests
     [Description("Fake 2nd test.")]
     public void PretendTestNumber2()
     {
+        EmergencyContactUser = new TestUser();
+
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
         var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
@@ -41,6 +44,7 @@ public class SampleApplicationOneTests
     public void Test3()
     {
         SetGenderTypes(Gender.Other, Gender.Other);
+        EmergencyContactUser = new TestUser();
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
@@ -60,10 +64,14 @@ public class SampleApplicationOneTests
     {
         Driver = GetChromeDriver();
         SampleAppPage = new SampleApplicationPage(Driver);
+
         TheTestUser = new TestUser();
         TheTestUser.FirstName = "Alex";
         TheTestUser.LastName = "Bullah";
-        TheTestUser.GenderType = Gender.Female;
+        
+        EmergencyContactUser = new TestUser();
+        EmergencyContactUser.FirstName = "Emergency First Name";
+        EmergencyContactUser.LastName = "Emergency Last Name";
     }
 
     private IWebDriver GetChromeDriver()
@@ -82,9 +90,11 @@ public class SampleApplicationOneTests
         Assert.IsFalse(!ultimateQAHomePage.IsVisible, "UltimateQA home page was not visible");
     }
 
-        /* Sprint 4 - Sample Application Lifecycle / Emergency contact added */
-        private void SetGenderTypes(Gender primaryContact, Gender emergencyContact)
+    /* Sprint 4 - Sample Application Lifecycle / Emergency contact added */
+    private void SetGenderTypes(Gender primaryContact, Gender emergencyContact)
     {
+        EmergencyContactUser = new TestUser();
+
         TheTestUser.GenderType = primaryContact;
         EmergencyContactUser.GenderType = emergencyContact;
     }
