@@ -8,14 +8,17 @@ namespace SampleFramework1;
 public class SampleApplicationOneTests
 {
     private IWebDriver? Driver { get; set; }
-    internal SampleApplicationPage SampleAppPage { get; private set; }
     internal TestUser? TheTestUser { get; private set; }
+
+    internal SampleApplicationPage? SampleAppPage { get; private set; }
+    internal TestUser? EmergencyContactUser { get; private set; }
 
     [TestMethod]
     [Description("Validate that user is able to fill out the form successfully using valid data.")]
     public void Test1()
     {
         TheTestUser.GenderType = Gender.Female;
+
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
         var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
