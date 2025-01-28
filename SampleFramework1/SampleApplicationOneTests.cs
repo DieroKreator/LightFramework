@@ -17,6 +17,7 @@ public class SampleApplicationOneTests
     {
         TheTestUser.GenderType = Gender.Female;
         SampleAppPage.GoTo();
+        SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
         var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisible(ultimateQAHomePage);
     }
