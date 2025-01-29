@@ -17,11 +17,11 @@ public class SampleApplicationOneTests
     public void Test1()
     {
         SetGenderTypes(Gender.Female, Gender.Female);
-        // EmergencyContactUser = new TestUser();
+        EmergencyContactUser = new TestUser();
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisible(ultimateQAHomePage);
     }
 
@@ -33,7 +33,7 @@ public class SampleApplicationOneTests
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
@@ -47,7 +47,7 @@ public class SampleApplicationOneTests
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
