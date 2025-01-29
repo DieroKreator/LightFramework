@@ -34,7 +34,11 @@ public class SampleApplicationOneTests
     [Description("Fake 2nd test.")]
     public void PretendTestNumber2()
     {
-        EmergencyContactUser = new TestUser();
+        EmergencyContactUser = new TestUser
+        {
+            FirstName = "Emergency First Name",
+            LastName = "Emergency Last Name"
+        };
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
@@ -48,7 +52,11 @@ public class SampleApplicationOneTests
     public void Test3()
     {
         SetGenderTypes(Gender.Other, Gender.Other);
-        EmergencyContactUser = new TestUser();
+        EmergencyContactUser = new TestUser
+        {
+            FirstName = "Emergency First Name",
+            LastName = "Emergency Last Name"
+        };
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
