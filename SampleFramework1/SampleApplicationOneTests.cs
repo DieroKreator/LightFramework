@@ -17,7 +17,12 @@ public class SampleApplicationOneTests
     public void Test1()
     {
         SetGenderTypes(Gender.Female, Gender.Female);
-        EmergencyContactUser = new TestUser();
+        EmergencyContactUser = new TestUser
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            GenderType = Gender.Male
+        };
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
@@ -69,8 +74,8 @@ public class SampleApplicationOneTests
         TheTestUser.LastName = "Bullah";
 
         EmergencyContactUser = new TestUser();
-        EmergencyContactUser.FirstName = "Emergency First Name";
-        EmergencyContactUser.LastName = "Emergency Last Name";
+        // EmergencyContactUser.FirstName = "Emergency First Name";
+        // EmergencyContactUser.LastName = "Emergency Last Name";
     }
 
     private IWebDriver GetChromeDriver()
