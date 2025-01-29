@@ -4,14 +4,13 @@ namespace SampleFramework1
 {
     internal class SampleApplicationPage : BaseSampleApplicationPage
     {
-        public SampleApplicationPage(IWebDriver driver) : base(driver) { }
+        public SampleApplicationPage(IWebDriver driver) : base(driver){}
 
         public bool IsVisible
         {
             get
             {
                 return Driver.Title.Contains(PageTitle);
-
             }
             internal set { }
         }
@@ -41,7 +40,7 @@ namespace SampleFramework1
                 $"Actual=>{Driver.Title}");
         }
 
-        internal UltimateQAHomePage FillOutFormAndSubmit(TestUser user)
+        internal UltimateQAHomePage FillOutPrimaryContactFormAndSubmit(TestUser user)
         {
             SetGender(user);
             FirstNameField.SendKeys(user.FirstName);

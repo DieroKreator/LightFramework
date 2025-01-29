@@ -9,7 +9,6 @@ public class SampleApplicationOneTests
 {
     private IWebDriver? Driver { get; set; }
     internal TestUser? TheTestUser { get; private set; }
-
     internal SampleApplicationPage? SampleAppPage { get; private set; }
     internal TestUser? EmergencyContactUser { get; private set; }
 
@@ -18,11 +17,11 @@ public class SampleApplicationOneTests
     public void Test1()
     {
         SetGenderTypes(Gender.Female, Gender.Female);
-        EmergencyContactUser = new TestUser();
+        // EmergencyContactUser = new TestUser();
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
         AssertPageVisible(ultimateQAHomePage);
     }
 
@@ -34,7 +33,7 @@ public class SampleApplicationOneTests
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
@@ -48,7 +47,7 @@ public class SampleApplicationOneTests
 
         SampleAppPage.GoTo();
         SampleAppPage.FillOutEmergencyContactForm(EmergencyContactUser);
-        var ultimateQAHomePage = SampleAppPage.FillOutFormAndSubmit(TheTestUser);
+        var ultimateQAHomePage = SampleAppPage.FillOutPrimaryContactFormAndSubmit(TheTestUser);
         AssertPageVisibleVariation2(ultimateQAHomePage);
     }
 
@@ -68,7 +67,7 @@ public class SampleApplicationOneTests
         TheTestUser = new TestUser();
         TheTestUser.FirstName = "Alex";
         TheTestUser.LastName = "Bullah";
-        
+
         EmergencyContactUser = new TestUser();
         EmergencyContactUser.FirstName = "Emergency First Name";
         EmergencyContactUser.LastName = "Emergency Last Name";
